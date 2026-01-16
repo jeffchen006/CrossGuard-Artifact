@@ -1,5 +1,4 @@
 # Large datasets and caches (not suitable for GitHub without LFS)
-/Benchmarks_Traces/
 /constraintPackage/cache/functionAccess/
 
 /parserPackage/cache/

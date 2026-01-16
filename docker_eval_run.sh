@@ -20,7 +20,9 @@ if [ ! -f "$FORGE_STD_TEST" ]; then
     echo "Error: git not found; cannot fetch forge-std."
     exit 1
   fi
-  if [ -d "$SCRIPT_DIR/.git" ]; then
+  if [ -d "$SCRIPT_DIR/.git" ] \
+    && [ -f "$SCRIPT_DIR/.gitmodules" ] \
+    && git -C "$SCRIPT_DIR" config -f .gitmodules --get submodule.CrossGuard_foundry/lib/forge-std.url >/dev/null; then
     git -C "$SCRIPT_DIR" submodule update --init --recursive CrossGuard_foundry/lib/forge-std
   else
     FORGE_STD_DIR="$SCRIPT_DIR/CrossGuard_foundry/lib/forge-std"

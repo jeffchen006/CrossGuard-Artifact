@@ -39,7 +39,24 @@ for zip_path in "${zips[@]}"; do
     rm -rf "$target"
   fi
   echo "Unpacking $bench"
-  unzip -q "$zip_path" -d "$OUT_DIR"
+  parts=( "$ZIP_DIR/$bench".z[0-9][0-9] "$ZIP_DIR/$bench".z[0-9][0-9][0-9] )
+  if [ "${#parts[@]}" -gt 0 ]; then
+    if command -v 7z >/dev/null 2>&1; then
+      7z x -y -o"$OUT_DIR" "$zip_path" >/dev/null
+    elif command -v zip >/dev/null 2>&1; then
+      tmp_dir="$ZIP_DIR/.tmp"
+      mkdir -p "$tmp_dir"
+      tmp_zip="$(mktemp -p "$tmp_dir" "${bench}.combined.XXXXXX.zip")"
+      zip -s 0 "$zip_path" --out "$tmp_zip" >/dev/null
+      unzip -q "$tmp_zip" -d "$OUT_DIR"
+      rm -f "$tmp_zip"
+    else
+      echo "Error: split zip detected for $bench but neither 7z nor zip is available." >&2
+      exit 1
+    fi
+  else
+    unzip -q "$zip_path" -d "$OUT_DIR"
+  fi
 done
 
 echo "Done."
