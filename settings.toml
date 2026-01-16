@@ -1,0 +1,26 @@
+[version]
+current = "v0.0.0-alpha"
+
+[settings]
+EtherScanApiKeys = [ "THF8Q6FVQCYSSHUBY89RX987IFEW5FBYD7"]
+BscScanApikeys = [ "", "", "",]
+FantomScanApikeys = [ "", "", "",]
+rpcProvider0 = "h"
+rpcProvider = ""
+rpcProvider2 = ""
+rpcProvider3 = ""
+rpcProvider4 = ""
+
+rpcProviders = ["", "", ""]
+
+
+archiveNode = ""
+proxy = "ef33e2db2e710aeae67ba2c25a757510a093c6b0"
+ethArchives = [ "https://eth.llamarpc.com"]
+
+
+[runtime]
+LoggingUpperBound = 1000
+
+[experiment]
+trainingSetRatio = 0.7

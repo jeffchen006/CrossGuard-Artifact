@@ -1,0 +1,23 @@
+# Large datasets and caches (not suitable for GitHub without LFS)
+/Benchmarks_Traces/
+
+/parserPackage/cache/
+/crawlPackage/database/
+/crytic-export/
+
+# Generated logs and tables
+/artifact_evaluation/logs/
+/artifact_evaluation/tables_generated.csv
+/artifact_evaluation/table_mismatch_report.txt
+
+# Foundry build outputs
+/CrossGuard_foundry/cache/
+/CrossGuard_foundry/out/
+/CrossGuard_foundry/target/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Local archives
+*.zip
