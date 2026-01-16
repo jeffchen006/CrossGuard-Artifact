@@ -14,7 +14,9 @@ This artifact packages the code, datasets, and scripts used to reproduce the pap
 ## Provenance
 - Artifact location: this repository (https://github.com/jeffchen006/CrossGuard-Artifact), archived at https://zenodo.org/records/18262998
 
-- Paper preprint: A new version has been uploaded to arxiv: https://arxiv.org/pdf/2504.05509
+- Paper preprint: A new version has been uploaded to arxiv: https://arxiv.org/pdf/2504.05509, we also include a copy of the preprint in this repository as `paper.pdf`. In the last page of the paper, we include a note about the artifact location
+and archival DOI.
+
 
 
 
@@ -25,9 +27,9 @@ This artifact includes a nontrivial dataset of cached traces and transaction rec
   - `crawlPackage/database/etherScan.db`: cached receipts and contract metadata.
   - `constraintPackage/`: large cached analysis state and derived artifacts.
   - `parserPackage/cache/` and `parserPackage/cache/*_decoded/`: decoded trace caches.
-- functionAccess cache packaging:
-  - Raw cache `constraintPackage/cache/functionAccess/` is stored as split zip archives under `constraintPackage/cache/functionAccess_zips/` to stay within GitHub size limits.
-  - Unpack with `scripts/unpack_functionAccess_zips.sh` before running experiments (`docker_eval_run.sh` does this automatically).
+- functionAccess cache packaging (depends on source):
+  - Zenodo download: includes raw `constraintPackage/cache/functionAccess/`.
+  - GitHub clone: ships split zip archives under `constraintPackage/cache/functionAccess_zips/` to stay within GitHub size limits. Unpack with `scripts/unpack_functionAccess_zips.sh` (`docker_eval_run.sh` does this automatically when zips are present).
 - Data provenance:
   - Ethereum transaction traces and receipts, obtained from RPC endpoints and Etherscan APIs (see `settings.toml`).
   - Benchmark metadata under `benchmarkPackage/benchmarks/*.json`.
@@ -76,7 +78,7 @@ Before running experiments, confirm:
   - `Benchmarks_Traces/`
   - `crawlPackage/database/etherScan.db`
   - `parserPackage/cache/` and `parserPackage/cache/*_decoded/`
-- functionAccess cache is present (or unpack from `constraintPackage/cache/functionAccess_zips/`).
+- functionAccess cache is present (Zenodo) or zip archives are present (GitHub clone).
 - `forge-std` is present for the Foundry experiment:
   - `CrossGuard_foundry/lib/forge-std/src/Test.sol` must exist.
 - `settings.toml` has valid RPC endpoints and API keys (see `[settings]` in `settings.toml`).
@@ -86,7 +88,8 @@ You can quickly check:
 test -f CrossGuard_foundry/lib/forge-std/src/Test.sol && echo "forge-std ok"
 test -f crawlPackage/database/etherScan.db && echo "receipt DB ok"
 test -d Benchmarks_Traces && echo "traces ok"
-test -d constraintPackage/cache/functionAccess && echo "functionAccess ok"
+test -d constraintPackage/cache/functionAccess && echo "functionAccess ok (raw)"
+test -d constraintPackage/cache/functionAccess_zips && echo "functionAccess zips ok"
 ```
 
 
@@ -100,7 +103,7 @@ Use the helper script to build the image and run all experiments in order:
 ```
 What it does:
 - Builds the Docker image.
-- Unpacks `constraintPackage/cache/functionAccess_zips/` into `constraintPackage/cache/functionAccess/` if needed.
+- Unpacks `constraintPackage/cache/functionAccess_zips/` into `constraintPackage/cache/functionAccess/` if the zips are present (GitHub clones); otherwise skips (Zenodo downloads).
 - Runs `spherex_reproduce/compute_gas_overhead.py`.
 - Runs `CrossGuard_foundry/gas_experiment.py`.
 - Runs `runFullExperiments.py` and then `artifact_evaluation/table_printers.py`.

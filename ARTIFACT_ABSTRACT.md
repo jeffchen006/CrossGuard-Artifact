@@ -15,6 +15,9 @@ The artifact is hosted at [GitHub - CrossGuard Artifact Repository](https://gith
   - `Benchmarks_Traces/` contains per-benchmark transaction lists used to drive the trace pipeline.
   - `constraintPackage/` and `parserPackage/` contain cached analysis artifacts and decoded traces (large).
   - `labelPackage/` and `labelTransactions/` provide labelled contracts and scripts.
+- Dataset packaging by source:
+  - Zenodo archive includes the raw `constraintPackage/cache/functionAccess/` cache.
+  - GitHub clone uses split zip archives under `constraintPackage/cache/functionAccess_zips/` due to size limits; unpack with `scripts/unpack_functionAccess_zips.sh` or run `./docker_eval_run.sh` (auto-unpacks when zips are present).
 
 ## How results map to the paper
 
