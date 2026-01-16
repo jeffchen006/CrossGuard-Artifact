@@ -1,0 +1,9 @@
+.git
+out
+cache
+broadcast
+snapshots
+.history
+**/*.log
+**/*.tmp
+report*.txt
