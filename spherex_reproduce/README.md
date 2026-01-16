@@ -1,0 +1,31 @@
+SphereX protected contracts:
+
+0x6231a192089fb636e704d2c7807d7a79c2457b07
+
+0xc92b021ff09ae005cb3fccb66af8db01fc4cdf90
+
+0xf5d35b9e95f6842a2064a2dd24f8deede9d58f97
+
+
+
+SphereX operator/engine contracts:
+
+0x4F90C0a26cc2AD22EE98398dcC02BBe314A1766A
+
+0xfEB516d9D946dD487A9346F6fee11f40C6945eE4
+
+
+deployment transactions:
+
+0xb93c31c5565dd8c2f626bc6a88cd8018a180cee601c96715739a41695b20e11e
+
+0xce0588cdc7f2b3da4baf5185e2e8d51c7d8ce00b9e4506ed4af906c5de07bc4c
+
+0x79ca606d2b370965928021b671b0619f618f4b8869cceb9ec08f1be885e10ca6
+
+
+
+
+All transactions:
+
+Benchmarks_Traces/CrossContract_study/SphereX/combined.txt

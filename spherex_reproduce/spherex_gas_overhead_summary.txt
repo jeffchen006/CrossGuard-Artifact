@@ -1,0 +1,20 @@
+SphereX operator/engine gas overhead summary
+========================================
+Transactions: 166
+Operator/engine addresses: 0x4f90c0a26cc2ad22ee98398dcc02bbe314a1766a, 0xfeb516d9d946dd487a9346f6fee11f40c6945ee4
+Staticcalls ignored.
+Nested invocations ignored.
+
+Method:
+- A = gasUsed from crawlPackage/database/etherScan.db
+- For each operator/engine call: gas_used = structLogs[start+1].gas - structLogs[end].gas
+- B = sum of operator/engine call gas_used within the tx
+- overhead = B / A
+
+Results:
+Average overhead (mean B_i/A_i): 0.10371756443480801 (10.3718%)
+Median overhead: 0.1054427088367886 (10.5443%)
+Total ratio (sum B / sum A): 0.06494529268715307 (6.4945%)
+Min overhead: 0.00988857195926872 (0.9889%) tx=0xb93c31c5565dd8c2f626bc6a88cd8018a180cee601c96715739a41695b20e11e
+Max overhead: 0.17231066087795466 (17.2311%) tx=0xed3a0cf019f6a95c934b438e7ad413f7b51367bfa98b57d9da47d52c0fd736f2
+Operator/engine calls per tx: avg=1.98, min=1, max=2
