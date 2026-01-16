@@ -1,0 +1,173 @@
+{
+  "benchmarks": [
+    {
+      "largest_size_contract": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+      "name": "AAVE2"
+    },
+    {
+      "largest_size_contract": "0xe7597f774fd0a15a617894dc39d45a28b97afa4f",
+      "name": "Auctus"
+    },
+    {
+      "largest_size_contract": "0x4d7968ebfd390d5e7926cb3587c39eff2f9fb225",
+      "name": "Audius"
+    },
+    {
+      "largest_size_contract": "0xb8919522331c59f5c16bdfaa6a121a6e03a91f62",
+      "name": "BaconProtocol"
+    },
+    {
+      "largest_size_contract": "0x448d330affa0ad31264c2e6a7b5d2bf579608065",
+      "name": "BeanstalkFarms_interface"
+    },
+    {
+      "largest_size_contract": "0x047d41f2544b7f63a8e991af2068a363d210d6da",
+      "name": "Bedrock_DeFi"
+    },
+    {
+      "largest_size_contract": "0x643d448cea0d3616f0b32e3718f563b164e7edd2",
+      "name": "BlueberryProtocol"
+    },
+    {
+      "largest_size_contract": "0x3c7274679ff9d090889ed8131218bdc871020391",
+      "name": "CheeseBank_1"
+    },
+    {
+      "largest_size_contract": "0x2db6c82ce72c8d7d770ba1b5f5ed0b6e075066d6",
+      "name": "CreamFi1_1"
+    },
+    {
+      "largest_size_contract": "0x8379baa817c5c5ab929b03ee8e3c48e45018ae41",
+      "name": "CreamFi2_4"
+    },
+    {
+      "largest_size_contract": "0x051ebd717311350f1684f89335bed4abd083a2b6",
+      "name": "DODO"
+    },
+    {
+      "largest_size_contract": "0x9f54e8eaa9658316bb8006e03fff1cb191aafbe6",
+      "name": "DoughFina"
+    },
+    {
+      "largest_size_contract": "0x16f6664c16bede5d70818654defef11769d40983",
+      "name": "Eminence"
+    },
+    {
+      "largest_size_contract": "0x8f1cece048cade6b8a05dfa2f90ee4025f4f2662",
+      "name": "GFOX"
+    },
+    {
+      "largest_size_contract": "0x053c80ea73dc6941f518a68e2fc52ac45bde7c9c",
+      "name": "Harvest1_fUSDT"
+    },
+    {
+      "largest_size_contract": "0xffde4785e980a99fe10e6a87a67d243664b91b25",
+      "name": "IndexFi"
+    },
+    {
+      "largest_size_contract": "0xde2af899040536884e062d3a334f2dd36f34b4a4",
+      "name": "InverseFi"
+    },
+    {
+      "largest_size_contract": "0xfddf38947afb03c621c71b06c9c70bce73f12999",
+      "name": "Lido2"
+    },
+    {
+      "largest_size_contract": "0x824dcd7b044d60df2e89b1bb888e66d8bcf41491",
+      "name": "MetaSwap"
+    },
+    {
+      "largest_size_contract": "0xc36a7887786389405ea8da0b87602ae3902b88a1",
+      "name": "MonoXFi"
+    },
+    {
+      "largest_size_contract": "0x9536a78440f72f5e9612949f1848fe5e9d4934cc",
+      "name": "NowSwap"
+    },
+    {
+      "largest_size_contract": "0x218615c78104e16b5f17764d35b905b638fe4a92",
+      "name": "OmniNFT"
+    },
+    {
+      "largest_size_contract": "0xbd20ae088dee315ace2c08add700775f461fea64",
+      "name": "OnyxDAO"
+    },
+    {
+      "largest_size_contract": "0xeb7e15b4e38cbee57a98204d05999c3230d36348",
+      "name": "Opyn"
+    },
+    {
+      "largest_size_contract": "0xcd892a97951d46615484359355e3ed88131f829d",
+      "name": "PickleFi"
+    },
+    {
+      "largest_size_contract": "0xfc7599cffea9de127a9f9c748ccb451a34d2f063",
+      "name": "PikeFinance"
+    },
+    {
+      "largest_size_contract": "0xc4ff55a4329f84f9bf0f5619998ab570481ebb48",
+      "name": "PopsicleFi"
+    },
+    {
+      "largest_size_contract": "0x4591dbff62656e7859afe5e45f6f47d3669fbb28",
+      "name": "PrismaFi"
+    },
+    {
+      "largest_size_contract": "0x1f3b04c8c96a31c7920372ffa95371c80a4bfb0d",
+      "name": "Punk_1"
+    },
+    {
+      "largest_size_contract": "0xd6e194af3d9674b62d1b30ec676030c23961275e",
+      "name": "RariCapital1"
+    },
+    {
+      "largest_size_contract": "0xa731585ab05fc9f83555cf9bff8f58ee94e18f85",
+      "name": "RariCapital2_3"
+    },
+    {
+      "largest_size_contract": "0x2320a28f52334d62622cc2eafa15de55f9987ed9",
+      "name": "RevestFi"
+    },
+    {
+      "largest_size_contract": "0xf5d35b9e95f6842a2064a2dd24f8deede9d58f97",
+      "name": "SphereX"
+    },
+    {
+      "largest_size_contract": "0xb3fb1d01b07a706736ca175f827e4f56021b85de",
+      "name": "UmbrellaNetwork"
+    },
+    {
+      "largest_size_contract": "0x42b24a95702b9986e82d421cc3568932790a48ec",
+      "name": "Uniswap2"
+    },
+    {
+      "largest_size_contract": "0x2409af0251dcb89ee3dee572629291f9b087c668",
+      "name": "UwULend"
+    },
+    {
+      "largest_size_contract": "0x55bf8304c78ba6fe47fd251f37d7beb485f86d26",
+      "name": "ValueDeFi"
+    },
+    {
+      "largest_size_contract": "0xc9f27a50f82571c1c8423a42970613b8dbda14ef",
+      "name": "VisorFi"
+    },
+    {
+      "largest_size_contract": "0xba539b9a5c2d412cb10e5770435f362094f9541c",
+      "name": "Warp_interface"
+    },
+    {
+      "largest_size_contract": "0x5e5186d21cbddc8765c4558dbda0bf20b90bf118",
+      "name": "XCarnival"
+    },
+    {
+      "largest_size_contract": "0x9e65ad11b299ca0abefc2799ddb6314ef2d91080",
+      "name": "Yearn1_interface"
+    },
+    {
+      "largest_size_contract": "0xaa6198fe597dfc331471ae7deba026fb299297fc",
+      "name": "bZx2"
+    }
+  ],
+  "generated_at": "2025-12-27T00:13:16.064414Z"
+}
