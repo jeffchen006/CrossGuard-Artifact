@@ -2,6 +2,8 @@
 
 This artifact packages the code, datasets, and scripts needed to reproduce the experimental results of the CrossGuard paper. It includes cached traces and receipts, labeling data, and analysis utilities, as well as a complete experiment driver and a table generator that compares outputs to expected results. The goal is to let reviewers rerun the pipeline end to end and verify the numbers reported in the paper, including the study table, ablation and gas results, and the CrossGuard vs Trace2Inv comparison.
 
+The artifact is hosted at [GitHub - CrossGuard Artifact Repository](https://github.com/jeffchen006/CrossGuard-artifact) and archived on Zenodo at [Zenodo - CrossGuard Artifact](https://zenodo.org/records/18262998), with a DOI of [10.5281/zenodo.18262998](https://doi.org/10.5281/zenodo.18262998).
+
 ## What the artifact contains
 
 - A full experiment runner: `runFullExperiments.py` executes all CrossGuard configurations (baseline through feedback windows) and the Trace2Inv comparison variants, then writes logs under `artifact_evaluation/logs/`.
