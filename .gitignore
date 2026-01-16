@@ -1,5 +1,6 @@
 # Large datasets and caches (not suitable for GitHub without LFS)
 /Benchmarks_Traces/
+/constraintPackage/cache/functionAccess/
 
 /parserPackage/cache/
 /crawlPackage/database/
@@ -21,3 +22,4 @@ __pycache__/
 
 # Local archives
 *.zip
+!constraintPackage/cache/functionAccess_zips/*.zip

@@ -25,6 +25,9 @@ This artifact includes a nontrivial dataset of cached traces and transaction rec
   - `crawlPackage/database/etherScan.db`: cached receipts and contract metadata.
   - `constraintPackage/`: large cached analysis state and derived artifacts.
   - `parserPackage/cache/` and `parserPackage/cache/*_decoded/`: decoded trace caches.
+- functionAccess cache packaging:
+  - Raw cache `constraintPackage/cache/functionAccess/` is stored as split zip archives under `constraintPackage/cache/functionAccess_zips/` to stay within GitHub size limits.
+  - Unpack with `scripts/unpack_functionAccess_zips.sh` before running experiments (`docker_eval_run.sh` does this automatically).
 - Data provenance:
   - Ethereum transaction traces and receipts, obtained from RPC endpoints and Etherscan APIs (see `settings.toml`).
   - Benchmark metadata under `benchmarkPackage/benchmarks/*.json`.
@@ -73,6 +76,7 @@ Before running experiments, confirm:
   - `Benchmarks_Traces/`
   - `crawlPackage/database/etherScan.db`
   - `parserPackage/cache/` and `parserPackage/cache/*_decoded/`
+- functionAccess cache is present (or unpack from `constraintPackage/cache/functionAccess_zips/`).
 - `forge-std` is present for the Foundry experiment:
   - `CrossGuard_foundry/lib/forge-std/src/Test.sol` must exist.
 - `settings.toml` has valid RPC endpoints and API keys (see `[settings]` in `settings.toml`).
@@ -82,6 +86,7 @@ You can quickly check:
 test -f CrossGuard_foundry/lib/forge-std/src/Test.sol && echo "forge-std ok"
 test -f crawlPackage/database/etherScan.db && echo "receipt DB ok"
 test -d Benchmarks_Traces && echo "traces ok"
+test -d constraintPackage/cache/functionAccess && echo "functionAccess ok"
 ```
 
 

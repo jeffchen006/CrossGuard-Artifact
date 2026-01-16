@@ -54,6 +54,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
     ca-certificates \
+    unzip \
     libssl-dev \
     libffi-dev \
     pkg-config \
