@@ -12,7 +12,7 @@ This artifact packages the code, datasets, and scripts needed to reproduce the e
 - Datasets and metadata:
   - `Benchmarks_Traces/` contains per-benchmark transaction lists used to drive the trace pipeline.
   - `constraintPackage/` and `parserPackage/` contain cached analysis artifacts and decoded traces (large).
-  - `labelPackage/` and `labelTransactions/` provide labeling inputs and scripts.
+  - `labelPackage/` and `labelTransactions/` provide labelled contracts and scripts.
 
 ## How results map to the paper
 
@@ -29,47 +29,6 @@ The detailed mapping is documented in `artifact_evaluation/ae_reproduction_mappi
 - Network and credentials:
   - RPC endpoints with trace support and an Etherscan API key configured in `settings.toml`.
   - Outbound network access to those services.
-
-## High-level usage
-
-1) Build the Docker image:
-
-```bash
-docker build -t crossguard-artifact .
-```
-
-2) Run the three main experiments:
-
-```bash
-# SphereX overhead
-docker run --rm -v "$PWD:/app" -w /app crossguard-artifact \
-  python3 spherex_reproduce/compute_gas_overhead.py
-
-# Foundry gas experiment
-docker run --rm -v "$PWD:/app" -w /app crossguard-artifact \
-  python3 CrossGuard_foundry/gas_experiment.py
-
-# Full pipeline
-docker run --rm -v "$PWD:/app" -w /app crossguard-artifact \
-  python3 runFullExperiments.py
-```
-
-3) Generate and verify tables:
-
-```bash
-docker run --rm -v "$PWD:/app" -w /app crossguard-artifact \
-  python3 artifact_evaluation/table_printers.py \
-    --log-dir artifact_evaluation \
-    --latex artifact_evaluation/Expected_Outputs.txt \
-    --table all \
-    --out artifact_evaluation/tables_generated.csv
-```
-
-Expected result: the script prints a success message indicating the outputs match the expected tables, and exits with status 0.
-
-## Limitations and manual checks
-
-Some paper claims are not fully automated by scripts in this repository and require manual inspection, including bypassability labels in the ablation table, the dataset split count (21/8/8), and the instrumentation mapping table. These are tracked in `artifact_evaluation/ae_validation_targets.md`.
 
 ## Summary
 

@@ -93,6 +93,25 @@ test -d constraintPackage/cache/functionAccess && echo "functionAccess ok"
 ## Usage (Reproduce Paper Results)
 All commands below are run from repo root.
 
+### One-shot Docker evaluation
+Use the helper script to build the image and run all experiments in order:
+```bash
+./docker_eval_run.sh
+```
+What it does:
+- Builds the Docker image.
+- Unpacks `constraintPackage/cache/functionAccess_zips/` into `constraintPackage/cache/functionAccess/` if needed.
+- Runs `spherex_reproduce/compute_gas_overhead.py`.
+- Runs `CrossGuard_foundry/gas_experiment.py`.
+- Runs `runFullExperiments.py` and then `artifact_evaluation/table_printers.py`.
+
+Output:
+- A full log is written to a temp file; the script prints the path at start and end.
+
+Common issues:
+- Missing Docker permissions: ensure your user is in the `docker` group (see Setup).
+- Missing data caches: confirm `Benchmarks_Traces/`, `crawlPackage/database/etherScan.db`, and `parserPackage/cache/` exist.
+
 ### Basic sanity check (if logs already exist)
 This verifies the table generator against `artifact_evaluation/Expected_Outputs.txt` without rerunning experiments.
 ```bash
