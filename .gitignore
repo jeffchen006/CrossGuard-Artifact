@@ -2,7 +2,9 @@
 /constraintPackage/cache/functionAccess/
 
 /parserPackage/cache/
-/crawlPackage/database/
+/crawlPackage/database/*
+!/crawlPackage/database/etherScan_db_zips/
+!/crawlPackage/database/etherScan_db_zips/**
 /crytic-export/
 
 # Generated logs and tables
@@ -22,3 +24,6 @@ __pycache__/
 # Local archives
 *.zip
 !constraintPackage/cache/functionAccess_zips/*.zip
+!crawlPackage/database/etherScan_db_zips/*.zip
+!crawlPackage/database/etherScan_db_zips/*.z[0-9][0-9]
+!crawlPackage/database/etherScan_db_zips/*.z[0-9][0-9][0-9]

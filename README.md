@@ -30,6 +30,9 @@ This artifact includes a nontrivial dataset of cached traces and transaction rec
 - functionAccess cache packaging (depends on source):
   - Zenodo download: includes raw `constraintPackage/cache/functionAccess/`.
   - GitHub clone: ships split zip archives under `constraintPackage/cache/functionAccess_zips/` to stay within GitHub size limits. Unpack with `scripts/unpack_functionAccess_zips.sh` (`docker_eval_run.sh` does this automatically when zips are present).
+- receipt DB packaging (depends on source):
+  - Zenodo download: includes raw `crawlPackage/database/etherScan.db`.
+  - GitHub clone: ships split zip archives under `crawlPackage/database/etherScan_db_zips/` to stay within GitHub size limits. Unpack with `scripts/unpack_etherScan_db_zips.sh` (`docker_eval_run.sh` does this automatically when zips are present).
 - Data provenance:
   - Ethereum transaction traces and receipts, obtained from RPC endpoints and Etherscan APIs (see `settings.toml`).
   - Benchmark metadata under `benchmarkPackage/benchmarks/*.json`.
@@ -76,7 +79,7 @@ The root `Dockerfile` builds a single image that includes:
 Before running experiments, confirm:
 - Cached traces and receipts exist:
   - `Benchmarks_Traces/`
-  - `crawlPackage/database/etherScan.db`
+  - `crawlPackage/database/etherScan.db` or `crawlPackage/database/etherScan_db_zips/`
   - `parserPackage/cache/` and `parserPackage/cache/*_decoded/`
 - functionAccess cache is present (Zenodo) or zip archives are present (GitHub clone).
 - `forge-std` is present for the Foundry experiment:
@@ -87,6 +90,7 @@ You can quickly check:
 ```bash
 test -f CrossGuard_foundry/lib/forge-std/src/Test.sol && echo "forge-std ok"
 test -f crawlPackage/database/etherScan.db && echo "receipt DB ok"
+test -d crawlPackage/database/etherScan_db_zips && echo "receipt DB zips ok"
 test -d Benchmarks_Traces && echo "traces ok"
 test -d constraintPackage/cache/functionAccess && echo "functionAccess ok (raw)"
 test -d constraintPackage/cache/functionAccess_zips && echo "functionAccess zips ok"
@@ -104,6 +108,7 @@ Use the helper script to build the image and run all experiments in order:
 What it does:
 - Builds the Docker image.
 - Unpacks `constraintPackage/cache/functionAccess_zips/` into `constraintPackage/cache/functionAccess/` if the zips are present (GitHub clones); otherwise skips (Zenodo downloads).
+- Unpacks `crawlPackage/database/etherScan_db_zips/` into `crawlPackage/database/etherScan.db` if the zips are present (GitHub clones); otherwise skips (Zenodo downloads).
 - Runs `spherex_reproduce/compute_gas_overhead.py`.
 - Runs `CrossGuard_foundry/gas_experiment.py`.
 - Runs `runFullExperiments.py` and then `artifact_evaluation/table_printers.py`.
@@ -113,7 +118,7 @@ Output:
 
 Common issues:
 - Missing Docker permissions: ensure your user is in the `docker` group (see Setup).
-- Missing data caches: confirm `Benchmarks_Traces/`, `crawlPackage/database/etherScan.db`, and `parserPackage/cache/` exist.
+- Missing data caches: confirm `Benchmarks_Traces/`, `crawlPackage/database/etherScan.db` (or zipped), and `parserPackage/cache/` exist.
 
 ### Basic sanity check (if logs already exist)
 This verifies the table generator against `artifact_evaluation/Expected_Outputs.txt` without rerunning experiments.

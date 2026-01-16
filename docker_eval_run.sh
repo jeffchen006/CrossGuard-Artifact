@@ -39,11 +39,11 @@ if [ ! -f "$FORGE_STD_TEST" ]; then
   echo
 fi
 
-echo "==> Step 1/5: docker build"
+echo "==> Step 1/6: docker build"
 docker build -t "$IMAGE_NAME" "$SCRIPT_DIR"
 echo
 
-echo "==> Step 2/5: unpack functionAccess cache (if needed)"
+echo "==> Step 2/6: unpack functionAccess cache (if needed)"
 docker run --rm \
   -v "$SCRIPT_DIR:/app" \
   -w /app \
@@ -51,7 +51,15 @@ docker run --rm \
   bash -lc "scripts/unpack_functionAccess_zips.sh"
 echo
 
-echo "==> Step 3/5: spherex_reproduce/compute_gas_overhead.py"
+echo "==> Step 3/6: unpack receipts DB (if needed)"
+docker run --rm \
+  -v "$SCRIPT_DIR:/app" \
+  -w /app \
+  "$IMAGE_NAME" \
+  bash -lc "scripts/unpack_etherScan_db_zips.sh"
+echo
+
+echo "==> Step 4/6: spherex_reproduce/compute_gas_overhead.py"
 docker run --rm \
   -v "$SCRIPT_DIR:/app" \
   -w /app \
@@ -59,7 +67,7 @@ docker run --rm \
   python3 spherex_reproduce/compute_gas_overhead.py
 echo
 
-echo "==> Step 4/5: CrossGuard_foundry/gas_experiment.py"
+echo "==> Step 5/6: CrossGuard_foundry/gas_experiment.py"
 docker run --rm \
   -v "$SCRIPT_DIR:/app" \
   -w /app \
@@ -67,7 +75,7 @@ docker run --rm \
   python3 CrossGuard_foundry/gas_experiment.py
 echo
 
-echo "==> Step 5/5: runFullExperiments.py + artifact_evaluation/table_printers.py"
+echo "==> Step 6/6: runFullExperiments.py + artifact_evaluation/table_printers.py"
 docker run --rm \
   -v "$SCRIPT_DIR:/app" \
   -w /app \
