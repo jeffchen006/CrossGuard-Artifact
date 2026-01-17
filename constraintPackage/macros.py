@@ -22,6 +22,9 @@ with open(fileName, 'r') as f:
 
 
 gasConsumptionGuard = {
+    # Baseline instrumentation overheads (see CrossGuard_foundry/expected.txt).
+    # Foundry updates can shift gas accounting slightly; we keep these fixed
+    # constants for per-benchmark overhead calculations.
 
     # Read from Trace2Inv
     "EOA": 33,

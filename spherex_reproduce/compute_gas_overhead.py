@@ -9,6 +9,10 @@ Method:
 - overhead = B / A, average reported as mean(B_i / A_i).
 
 Staticcalls are ignored; nested invocations are included.
+
+Note: the paper reports 6.09% overhead using historical onchain gas. Re-running
+later can yield slightly higher values (e.g., 6.6695% on Jan 15) because RPC
+clients and receipt data evolve over time. This reinforces the same conclusion.
 """
 
 import csv

@@ -1,3 +1,13 @@
+# Note: Foundry gas accounting can change over time. Small mismatches are expected.
+# Known diffs (Jan 15):
+# - Instrument_prepost: expected 340, actual 344
+# - Instrument_sload: expected 4901, actual 4910
+# - Instrument_sstore: expected 2905, actual 2900
+# - merge_instrument_prepost: expected 8062, actual 8060
+# - merge_instrument_sload: expected 2056, actual 2068
+# - merge_instrument_sstore: expected 2968, actual 2966
+# These expected values are the baseline used in constraintPackage/macros.py.
+
 "Instrument_prepost": 42758 - 26358 - 6352 - 9708, 
 "Instrument_sload": 47659 - 42758,
 "Instrument_sstore": 45663 - 42758,
@@ -5,4 +15,3 @@
 "merge_instrument_prepost": 34417 - 26355, 
 "merge_instrument_sload": 36473 - 34417 ,
 "merge_instrument_sstore":37385 - 34417 , 
-

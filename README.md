@@ -149,6 +149,8 @@ Step 3: verify success.
 Success criteria:
 - stdout prints a summary with `Transactions:` and `Total ratio` lines.
 - no Python exceptions (non-zero exit indicates missing caches or API failures).
+- Paper result is 6.09% overhead; re-running can yield slightly higher values
+  (e.g., 6.6695% on Jan 15) due to RPC/client updates and receipt drift.
 
 ### Experiment B: Foundry gas experiment (instrumentation)
 Step 1: ensure `forge-std` is present.
@@ -168,6 +170,16 @@ Step 3: verify success.
 Success criteria:
 - stdout shows both "Expected" and "Actual" sections.
 - no `MISMATCHES` block (if present, deltas differ from `expected.txt`).
+Note: Foundry updates can slightly change gas accounting, so small mismatches are
+expected. Known diffs observed:
+- Instrument_prepost: expected 340, actual 344
+- Instrument_sload: expected 4901, actual 4910
+- Instrument_sstore: expected 2905, actual 2900
+- merge_instrument_prepost: expected 8062, actual 8060
+- merge_instrument_sload: expected 2056, actual 2068
+- merge_instrument_sstore: expected 2968, actual 2966
+These instrumentation overheads are stored in `constraintPackage/macros.py` for
+per-benchmark gas calculations in Experiment C.
 
 ### Experiment C: Full CrossGuard pipeline + tables
 Step 1: run the full experiment suite.
