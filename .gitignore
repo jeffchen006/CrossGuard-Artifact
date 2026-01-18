@@ -1,8 +1,8 @@
 # Large datasets and caches (not suitable for GitHub without LFS)
 /constraintPackage/cache/functionAccess/
 
-# /parserPackage/cache/
-# !parserPackage/cache/SphereX/
+/parserPackage/cache/
+!parserPackage/cache/SphereX/
 
 /crawlPackage/database/*
 !/crawlPackage/database/etherScan_db_zips/
