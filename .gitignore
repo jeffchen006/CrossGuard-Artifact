@@ -1,11 +1,15 @@
 # Large datasets and caches (not suitable for GitHub without LFS)
 /constraintPackage/cache/functionAccess/
 
-/parserPackage/cache/
+# /parserPackage/cache/
+# !parserPackage/cache/SphereX/
+
 /crawlPackage/database/*
 !/crawlPackage/database/etherScan_db_zips/
 !/crawlPackage/database/etherScan_db_zips/**
 /crytic-export/
+
+
 
 # Generated logs and tables
 /artifact_evaluation/logs/

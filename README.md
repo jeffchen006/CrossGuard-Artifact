@@ -75,7 +75,7 @@ The root `Dockerfile` builds a single image that includes:
 - `solc-select` with Solidity versions `0.8.17` and `0.8.26` (default `0.8.17`).
 - `vyper-select` with Vyper versions `0.3.7` and `0.2.16` (default `0.3.7`).
 
-### Required configuration and data checks
+### Required configuration and data checks if running without docker 
 Before running experiments, confirm:
 - Cached traces and receipts exist:
   - `Benchmarks_Traces/`
